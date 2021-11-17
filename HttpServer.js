@@ -1,8 +1,6 @@
-const net = require('net');
-var crypto = require('crypto')
+const net = require('net')
 
 const server = new net.Server()
-var key = ""
 
 server.on('connection', (socket) => {
   console.log(socket.remoteAddress, socket.remoteFamily, socket.remotePort)
