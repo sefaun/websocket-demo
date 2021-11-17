@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fatura</title>
+  <style>
+    * {
+      padding: 0px;
+      margin: 0px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <script>
+
+    // Let us open a web socket
+    var ws = new WebSocket("ws://localhost:5000");
+
+    ws.onopen = function () {
+
+      //ws.send(JSON.stringify({ data: "Message to send" }));
+      console.log("Connected...");
+    };
+
+    ws.onmessage = function (evt) {
+      var received_msg = evt.data;
+      console.log(evt.data)
+      //alert("Message is received...", received_msg);
+    };
+
+    ws.onclose = function () {
+      // websocket is closed.
+      alert("Connection is closed...");
+    };
+
+    ws.onerror = function (event) {
+      alert(JSON.stringify(event));
+    };
+
+  </script>
+</body>
+
+</html>
