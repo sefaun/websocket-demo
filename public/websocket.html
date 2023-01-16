@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fatura</title>
+  <title>Websocket Client</title>
   <style>
     * {
       padding: 0px;
@@ -15,32 +15,32 @@
 </head>
 
 <body>
+  <div id="app">
+    <p id="text"></p>
+  </div>
 
   <script>
-
-    // Let us open a web socket
-    var ws = new WebSocket("ws://localhost:5000");
+    // Let us open a websocket
+    const ws = new WebSocket("ws://localhost:5000")
 
     ws.onopen = function () {
-
-      //ws.send(JSON.stringify({ data: "Message to send" }));
-      console.log("Connected...");
-    };
+      console.log("Connected...")
+    }
 
     ws.onmessage = function (evt) {
-      var received_msg = evt.data;
+      var received_msg = evt.data
       console.log(evt.data)
-      //alert("Message is received...", received_msg);
-    };
+      ws.send(JSON.stringify({ data: "Message to send" }))
+    }
 
     ws.onclose = function () {
       // websocket is closed.
-      alert("Connection is closed...");
-    };
+      console.log("Connection is closed...")
+    }
 
     ws.onerror = function (event) {
-      alert(JSON.stringify(event));
-    };
+      console.log(JSON.stringify(event))
+    }
 
   </script>
 </body>
