@@ -5,4 +5,4 @@ I did this project to improve my skills.
 `npm i`
 
 ## Start Server
-`node test.js`
+`node ./test/index.js`
