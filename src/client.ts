@@ -1,6 +1,5 @@
-import net from 'net'
 import crypto from 'crypto'
-import { Socket } from "net"
+import { Socket } from 'net'
 
 import { WebSocketServer } from '../index'
 import { Request, ServerOptions } from './types'
